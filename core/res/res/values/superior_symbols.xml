@@ -72,5 +72,8 @@
     <!-- SystemUI restart dialog -->
     <java-symbol type="string" name="systemui_restart_title" />
     <java-symbol type="string" name="systemui_restart_message" />
+    
+    <!-- Custom logo color -->
+    <java-symbol type="color" name="logo_accent_color" />
 
 </resources>
