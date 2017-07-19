@@ -141,4 +141,7 @@
     <string name="omnijaws_service_error">Error loading weather data</string>
     <string name="omnijaws_service_unknown">No weather data</string>
     <string name="omnijaws_label_default">Weather</string>
+
+     <!-- Name of the volte/vowifi status bar icon. -->
+     <string name="status_bar_ims">VoLTE/VoWiFi</string>
 </resources>
