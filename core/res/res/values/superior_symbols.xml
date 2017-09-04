@@ -62,4 +62,6 @@
      <!-- Global Actions pref list -->
      <java-symbol type="array" name="custom_config_globalActionsList" />
 
+     <!-- Leds -->
+     <java-symbol type="bool" name="config_intrusiveBatteryLed" />
 </resources>
