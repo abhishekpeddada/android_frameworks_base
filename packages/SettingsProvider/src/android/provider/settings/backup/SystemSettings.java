@@ -107,5 +107,6 @@ public class SystemSettings {
         Settings.System.STATUS_BAR_LOGO_STYLE,
         Settings.System.STATUS_BAR_LOGO_COLOR,
         Settings.System.STATUS_BAR_LOGO_COLOR_PICKER,
+        Settings.System.AMBIENT_WAKE_GESTURES,
     };
 }
