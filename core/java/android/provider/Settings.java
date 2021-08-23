@@ -6179,6 +6179,12 @@ public final class Settings {
         public static final String QS_FOOTER_DATA_USAGE = "qs_footer_data_usage";
 
         /**
+         * Select which System charging animation bg to display
+         * @hide
+         */
+        public static final String CHARGING_ANIMATION_BG = "charging_animation_bg";
+
+	/**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
