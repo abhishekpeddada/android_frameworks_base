@@ -9,11 +9,6 @@
      <string name="turn_on_bluetooth">Use Bluetooth</string>
      <string name="bluetooth_is_off">Bluetooth is off</string>
      <string name="tap_a_device_to_connect">Tap a device to connect</string>
-
-     <!-- Pure Tuner Theme-->
-     <style name="ExTunerSettings" parent="@android:style/Theme.DeviceDefault.Settings">
-          <item name="preferenceTheme">@style/TunerPreferenceTheme</item>
-     </style>
      
      <!-- Island notification -->
     <style name="Theme.Island.SystemUI" parent="@style/Theme.MaterialComponents.DayNight">
@@ -24,5 +19,4 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">48dp</item>
     </style>
-
 </resources>
