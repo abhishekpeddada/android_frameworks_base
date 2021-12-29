@@ -87,4 +87,7 @@
     
     <!-- Device hardware keys -->
    <java-symbol type="integer" name="config_deviceHardwareWakeKeys" />
+   
+    <!-- Whether to cancel fingerprint operation if not idle -->
+    <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
 </resources>
