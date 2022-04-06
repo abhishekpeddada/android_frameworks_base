@@ -52,5 +52,8 @@
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">@bool/config_intrusiveNotificationLed</bool>
+    
+    <!-- Whether to allow network traffic on statusbar -->
+  <bool name="config_supportsNetworkTrafficOnStatusBar">true</bool>
 
 </resources>
