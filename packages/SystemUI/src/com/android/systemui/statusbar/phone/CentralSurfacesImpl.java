@@ -250,6 +250,7 @@ import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.window.StatusBarWindowController;
 import com.android.systemui.statusbar.window.StatusBarWindowStateController;
 import com.android.systemui.surfaceeffects.ripple.RippleShader.RippleShape;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.DumpUtilsKt;
 import com.android.systemui.util.WallpaperController;
 import com.android.systemui.util.concurrency.DelayableExecutor;
@@ -289,12 +290,15 @@ import javax.inject.Provider;
  * {@link ActivityStarterImpl}
  */
 @SysUISingleton
-public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
+public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, TunerService.Tunable {
 
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
     private static final String BANNER_ACTION_SETUP =
             "com.android.systemui.statusbar.banner_action_setup";
+
+    private static final String QS_TRANSPARENCY =
+            "system:" + Settings.System.QS_TRANSPARENCY;
 
     private static final int MSG_OPEN_SETTINGS_PANEL = 1002;
     private static final int MSG_LAUNCH_TRANSITION_TIMEOUT = 1003;
@@ -516,6 +520,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
     private final UserTracker mUserTracker;
     private final Provider<FingerprintManager> mFingerprintManager;
     private final ActivityStarter mActivityStarter;
+    private final TunerService mTunerService;
 
     private CentralSurfacesComponent mCentralSurfacesComponent;
 
@@ -788,6 +793,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
             DeviceStateManager deviceStateManager,
             WiredChargingRippleController wiredChargingRippleController,
             IDreamManager dreamManager,
+            TunerService tunerService,
             Lazy<CameraLauncher> cameraLauncherLazy,
             Lazy<LightRevealScrimViewModel> lightRevealScrimViewModelLazy,
             LightRevealScrim lightRevealScrim,
@@ -892,6 +898,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
         mCameraLauncherLazy = cameraLauncherLazy;
         mAlternateBouncerInteractor = alternateBouncerInteractor;
         mUserTracker = userTracker;
+        mTunerService = tunerService;
         mFingerprintManager = fingerprintManager;
         mActivityStarter = activityStarter;
 
@@ -969,6 +976,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
         mKeyguardIndicationController.init();
 
         mColorExtractor.addOnColorsChangedListener(mOnColorsChangedListener);
+        mTunerService.addTunable(this, QS_TRANSPARENCY);
 
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
 
@@ -3488,6 +3496,18 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
         return mStatusBarKeyguardViewManager.isSecure();
     }
 
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        switch (key) {
+            case QS_TRANSPARENCY:
+                mScrimController.setCustomScrimAlpha(
+                        TunerService.parseInteger(newValue, 100));
+                break;
+            default:
+                break;
+         }
+    }
+    
     // End Extra BaseStatusBarMethods.
 
     boolean isTransientShown() {
