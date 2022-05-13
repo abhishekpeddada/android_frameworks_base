@@ -108,5 +108,9 @@
     <!-- Pocket Service -->
     <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
     <java-symbol type="string" name="config_pocketJudgeVendorProximitySensorName" />
-
+    
+    <!-- Status bar paddings -->
+    <java-symbol type="dimen" name="status_bar_padding_start" />
+    <java-symbol type="dimen" name="status_bar_padding_end" />
+    <java-symbol type="dimen" name="status_bar_padding_top" />
 </resources>
