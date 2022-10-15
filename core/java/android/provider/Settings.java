@@ -6737,6 +6737,11 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_WEATHER_ENABLED = "lockscreen_weather_enabled";
+        
+        /**
+         * @hide
+         */
+        public static final String LOCKSCREEN_WEATHER_LOCATION = "lockscreen_weather_location";
 
         /**
          * Whether to enable statusbar brightness control
