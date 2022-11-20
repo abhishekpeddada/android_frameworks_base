@@ -60,6 +60,7 @@ import android.view.WindowManagerGlobal;
 
 import com.android.internal.content.ReferrerIntent;
 import com.android.internal.util.PropImitationHooks;
+import com.android.internal.util.superior.GamesPropsUtils;
 
 import java.io.File;
 import java.lang.annotation.Retention;
@@ -1286,6 +1287,7 @@ public class Instrumentation {
         app.attach(context);
         PropImitationHooks.setProps(app);
         MeizuPropsUtils.setProps(app);
+        GamesPropsUtils.setProps(app);
         return app;
     }
     
@@ -1305,6 +1307,7 @@ public class Instrumentation {
         app.attach(context);
         PropImitationHooks.setProps(app);
         MeizuPropsUtils.setProps(app);
+        GamesPropsUtils.setProps(app);
         return app;
     }
 
