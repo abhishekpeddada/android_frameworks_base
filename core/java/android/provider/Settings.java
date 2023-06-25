@@ -6652,6 +6652,12 @@ public final class Settings {
         public static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
 
         /**
+         * Give haptic feedback on brightness slider changes.
+         * @hide
+         */
+        public static final String BRIGHTNESS_SLIDER_HAPTIC_ENABLED = "brightness_slider_haptic_enabled";
+
+        /**
          * These are all public system settings
          *
          * @hide
