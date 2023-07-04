@@ -6742,6 +6742,11 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_WEATHER_LOCATION = "lockscreen_weather_location";
+        
+        /**
+         * @hide
+         */
+        public static final String OMNIJAWS_WEATHER_ICON_PACK = "omnijaws_weather_icon_pack";
 
         /**
          * Whether to enable statusbar brightness control
@@ -6911,6 +6916,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_HEADER_IMAGE_PADDING_SIDE);
             PRIVATE_SETTINGS.add(QS_HEADER_IMAGE_PADDING_TOP);
             PRIVATE_SETTINGS.add(QS_HEADER_IMAGE_URI);
+            PRIVATE_SETTINGS.add(OMNIJAWS_WEATHER_ICON_PACK);
         }
 
         /**
