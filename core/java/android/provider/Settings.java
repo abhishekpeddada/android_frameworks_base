@@ -6527,6 +6527,12 @@ public final class Settings {
          * @hide
          */
         public static final String CUSTOM_TRANSITIONS_KEY = "custom_transitions_page_tile";
+        
+        /**
+         * QS Header
+         * @hide
+         */
+        public static final String QS_HEADER_IMAGE = "qs_header_image";
 
         /**
           * QS header size
