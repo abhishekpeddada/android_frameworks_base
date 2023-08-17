@@ -564,7 +564,6 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
                     }
                 },
                 UserHandle.USER_ALL);
-                
         mSystemSettings.registerContentObserverForUser(
                 Settings.System.getUriFor(Settings.System.QS_TILE_VERTICAL_LAYOUT),
                 false,
@@ -701,18 +700,6 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
                     }
                 },
                 UserHandle.USER_ALL);
-                
-        mSystemSettings.registerContentObserverForUser(
-                Settings.System.getUriFor(Settings.System.LOCKSCREEN_WEATHER_ENABLED),
-                false,
-                new ContentObserver(mBgHandler) {
-                    @Override
-                    public void onChange(boolean selfChange, Collection<Uri> collection, int flags,
-                            int userId) {
-                        restartSystemUI();
-                    }
-                },
-                UserHandle.USER_ALL);
 
         mUserTracker.addCallback(mUserTrackerCallback, mMainExecutor);
 
@@ -765,18 +752,6 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
             }
         });
         mConfigurationController.addCallback(mConfigurationListener);
-    }
-    
-    private void restartSystemUI() {
-        Toast toast = Toast.makeText(mContext, R.string.restarting_systemui_msg, Toast.LENGTH_SHORT);
-        toast.show();
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                android.os.Process.killProcess(android.os.Process.myPid());
-            }
-        }, toast.getDuration() + 2000);
     }
 
     private void reevaluateSystemTheme(boolean forceReload) {
