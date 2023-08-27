@@ -52,5 +52,7 @@
     <bool name="config_use_split_notification_shade">true</bool>
     <bool name="config_skinnyNotifsInLandscape">false</bool>
     <bool name="can_use_one_handed_bouncer">true</bool>
-    
+
+    <!-- Whether notification header should never show section headers. -->
+    <bool name="config_notification_never_show_section_headers">true</bool>
 </resources>
