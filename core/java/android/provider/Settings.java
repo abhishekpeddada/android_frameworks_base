@@ -6523,6 +6523,12 @@ public final class Settings {
          * @hide
          */
         public static final String DOZE_TRIGGER_DOUBLETAP = "doze_trigger_doubletap";
+        
+        /**
+         * Clock font color
+         * @hide
+         */
+        public static final String STATUS_BAR_CUSTOM_CLOCK_COLOR = "status_bar_custom_clock_color";
 
         /**
          * Clock font color
