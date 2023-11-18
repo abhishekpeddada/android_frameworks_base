@@ -6681,6 +6681,11 @@ public final class Settings {
         public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
         
         /**
+         * @hide
+         */
+        public static final String ISLAND_NOTIFICATION = "island_notification";
+
+        /**
          * These are all public system settings
          *
          * @hide
