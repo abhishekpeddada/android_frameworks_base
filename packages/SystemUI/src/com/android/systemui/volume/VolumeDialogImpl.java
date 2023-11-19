@@ -310,11 +310,6 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     private int mOrientation;
     private final FeatureFlags mFeatureFlags;
 
-    // Variable to track the default row with which the panel is initially shown
-    private VolumeRow mDefaultRow = null;
-
-    private FrameLayout mRoundedBorderBottom;
-
     public VolumeDialogImpl(
             Context context,
             VolumeDialogController volumeDialogController,
@@ -669,8 +664,6 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
 
         mSettingsView = mDialog.findViewById(R.id.settings_container);
         mSettingsIcon = mDialog.findViewById(R.id.settings);
-
-        mRoundedBorderBottom = mDialog.findViewById(R.id.rounded_border_bottom);
 
         mAppVolumeView = mDialog.findViewById(R.id.app_volume_container);
         mAppVolumeIcon = mDialog.findViewById(R.id.app_volume);
@@ -1195,11 +1188,6 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     }
 
     private void initSettingsH(int lockTaskModeState) {
-        if (mRoundedBorderBottom != null){
-            mRoundedBorderBottom.setVisibility(!mDeviceProvisionedController.isCurrentUserSetup() ||
-                    lockTaskModeState != LOCK_TASK_MODE_NONE
-                    ? VISIBLE : GONE);
-        }
         if (mSettingsView != null) {
             mSettingsView.setVisibility(
                     mDeviceProvisionedController.isCurrentUserSetup() &&
