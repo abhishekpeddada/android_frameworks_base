@@ -326,13 +326,15 @@ public class PropImitationHooks {
 
     private static void spoofBuildGms() {
         // Alter build parameters to Nexus 5X for avoiding hardware attestation enforcement
-        setPropValue("DEVICE", "bullhead");
-        setPropValue("ID", "OPR6.170623.013");
-        setPropValue("FINGERPRINT", "google/bullhead/bullhead:8.0.0/OPR6.170623.013/4283548:user/release-keys");
-        setPropValue("MODEL", "Nexus 5X");
-        setPropValue("PRODUCT", "bullhead");
+        setPropValue("BRAND", "YU nitrogen");
+        setPropValue("MANUFACTURER", "YU");
+        setPropValue("DEVICE", "YUREKA");
+        setPropValue("ID", "LMY49J");
+        setPropValue("FINGERPRINT", "YU/YUREKA/YUREKA:5.1.1/LMY49J/YOG4PAS8A4:user/release-keys");
+        setPropValue("MODEL", "YU5510");
+        setPropValue("PRODUCT", "YUREKA");
         setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N);
-        setVersionFieldString("SECURITY_PATCH", "2017-08-05");
+        setVersionFieldString("SECURITY_PATCH", "2015-11-01");
     }
 
     private static void setVersionFieldString(String key, String value) {
