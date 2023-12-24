@@ -769,8 +769,8 @@ public class QSPanel extends LinearLayout implements Tunable {
         if (mBrightnessView == null) return;
         removeView(mBrightnessView);
         addView(mBrightnessView, mTop ? 0 : 1);
-        if (mBrightnessRunnable != null) {
-            updateResources();
+        updateResources();
+        if (mBrightnessRunnable != null) {            
             mBrightnessRunnable.run();
         }
     }
