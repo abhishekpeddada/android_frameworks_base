@@ -658,8 +658,6 @@ public class ActivityManagerService extends IActivityManager.Stub
     /** All system services */
     SystemServiceManager mSystemServiceManager;
 
-    private Installer mInstaller;
-
     /** Run all ActivityStacks through this */
     ActivityTaskSupervisor mTaskSupervisor;
 
@@ -2621,10 +2619,6 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     public void setSystemServiceManager(SystemServiceManager mgr) {
         mSystemServiceManager = mgr;
-    }
-
-    public void setInstaller(Installer installer) {
-        mInstaller = installer;
     }
 
     private void start() {
