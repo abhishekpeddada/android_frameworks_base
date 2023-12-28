@@ -5895,13 +5895,6 @@ public final class Settings {
         public static final String STATUS_BAR_CLOCK_AUTO_HIDE = "status_bar_clock_auto_hide";
 
         /**
-         * Whether to show media album art on keyguard
-         * @hide
-         */
-        @Readable
-        public static final String KEYGAURD_MEDIA_ART = "keygaurd_media_art";
-
-        /**
          * Whether to play notification sound and vibration if screen is ON
          * 0 - never
          * 1 - always
@@ -6155,12 +6148,6 @@ public final class Settings {
          * @hide
          */
         public static final String NETWORK_TRAFFIC_UNIT_TYPE = "network_traffic_unit_type";
-
-        /**
-         * media artwork wallpaper blur level on lockscreen
-         * @hide
-         */
-        public static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
 
         /**
          * Whether the torch launch gesture to double tap or long press the power button when the
