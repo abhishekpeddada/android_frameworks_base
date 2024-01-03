@@ -59,8 +59,6 @@ import android.view.Window;
 import android.view.WindowManagerGlobal;
 
 import com.android.internal.content.ReferrerIntent;
-import com.android.internal.util.PropImitationHooks;
-import com.android.internal.util.superior.GamesPropsUtils;
 
 import java.io.File;
 import java.lang.annotation.Retention;
@@ -70,6 +68,8 @@ import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 import com.android.internal.util.superior.MeizuPropsUtils;
+import com.android.internal.util.superior.PixelPropsUtils;
+import com.android.internal.util.superior.GamesPropsUtils;
 
 /**
  * Base class for implementing application instrumentation code.  When running
@@ -1285,12 +1285,12 @@ public class Instrumentation {
         Application app = getFactory(context.getPackageName())
                 .instantiateApplication(cl, className);
         app.attach(context);
-        PropImitationHooks.setProps(app);
         MeizuPropsUtils.setProps(app);
+        PixelPropsUtils.setProps(app);
         GamesPropsUtils.setProps(app);
         return app;
     }
-    
+
     /**
      * Perform instantiation of the process's {@link Application} object.  The
      * default implementation provides the normal system behavior.
@@ -1305,8 +1305,8 @@ public class Instrumentation {
             ClassNotFoundException {
         Application app = (Application)clazz.newInstance();
         app.attach(context);
-        PropImitationHooks.setProps(app);
         MeizuPropsUtils.setProps(app);
+        PixelPropsUtils.setProps(app);
         GamesPropsUtils.setProps(app);
         return app;
     }

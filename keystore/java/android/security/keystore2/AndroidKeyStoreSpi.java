@@ -45,7 +45,6 @@ import android.system.keystore2.ResponseCode;
 import android.util.Log;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.internal.util.PropImitationHooks;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -88,6 +87,8 @@ import java.util.Locale;
 import java.util.NoSuchElementException;
 
 import javax.crypto.SecretKey;
+
+import com.android.internal.util.superior.PixelPropsUtils;
 
 /**
  * A java.security.KeyStore interface for the Android KeyStore. An instance of
@@ -190,7 +191,7 @@ public class AndroidKeyStoreSpi extends KeyStoreSpi {
 
     @Override
     public Certificate[] engineGetCertificateChain(String alias) {
-        PropImitationHooks.onEngineGetCertificateChain();
+        PixelPropsUtils.onEngineGetCertificateChain();
 
         KeyEntryResponse response = getKeyMetadata(alias);
 

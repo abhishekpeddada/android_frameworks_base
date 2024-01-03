@@ -1218,11 +1218,14 @@ public class SettingsProvider extends ContentProvider {
             Slog.v(LOG_TAG, "setAllConfigSettings for prefix: " + prefix);
         }
 
+        enforceDeviceConfigWritePermission(getContext(), keyValues.keySet());
         final String callingPackage = resolveCallingPackage();
 
-        if (!callingPackage.equals("com.google.android.gms")) {
-            enforceDeviceConfigWritePermission(getContext(), keyValues.keySet());
-        }
+        try {
+            if (!callingPackage.equals("com.google.android.gms")) {
+                enforceWritePermission(Manifest.permission.WRITE_DEVICE_CONFIG);
+            }
+        } catch (SecurityException e) {}
 
         synchronized (mLock) {
             if (getSyncDisabledModeConfigLocked() != SYNC_DISABLED_MODE_NONE) {
@@ -1232,6 +1235,15 @@ public class SettingsProvider extends ContentProvider {
             boolean success = mSettingsRegistry.setConfigSettingsLocked(key, prefix, keyValues,
                     callingPackage);
             return success ? SET_ALL_RESULT_SUCCESS : SET_ALL_RESULT_FAILURE;
+        }
+    }
+
+    private void enforceWritePermission(String permission) {
+        if (getContext().checkCallingOrSelfPermission(permission)
+                != PackageManager.PERMISSION_GRANTED) {
+            throw new SecurityException("Permission denial: " + resolveCallingPackage()
+                + " writing to settings requires:"
+                + permission);
         }
     }
 
